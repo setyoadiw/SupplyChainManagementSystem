@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V16</title>
+	<title>Supply Chain - Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	{{-- <link rel="icon" type="image/png" href="images/icons/favicon.ico"/> --}}
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -38,14 +38,27 @@
 				</span>
 				<form method="POST" action="{{ route('login') }}" class="login100-form validate-form p-b-33 p-t-5">
                     @csrf
-					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="username" placeholder="User name">
+					<div class="wrap-input100 validate-input " data-validate = "Enter username">
+					
+						<input class="input100 " type="email" id="inputEmail" name="email" placeholder="Email" value="{{ old('email') }}">
+						
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+						@if ($errors->has('email'))
+							<span class="invalid-feedback" style="display: block;" role="alert">
+								<strong>{{ $errors->first('email') }}</strong>
+							</span>
+						@endif
 					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+					
+					<div class="wrap-input100 validate-input " data-validate="Enter password">
+						<input class="input100 " type="password" id="inputPassword" name="password" placeholder="Password">
+						
 						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+						@if ($errors->has('password'))
+							<span class="invalid-feedback" style="display: block;" role="alert">
+								<strong>{{ $errors->first('password') }}</strong>
+							</span>
+						@endif
 					</div>
 
 					<div class="container-login100-form-btn m-t-32">

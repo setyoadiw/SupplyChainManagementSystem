@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Vendors;
+use App\Rfq;
 
 class SupplyChainController extends Controller
 {
@@ -16,18 +18,9 @@ class SupplyChainController extends Controller
     {
         //
 
-        // $produks = Produk::all();        
+        $vendors = Vendors::all();    
 
-        // $carts = DB::table('carts')
-        // ->select('produks.nama_produk','produks.id as produk_id','carts.id','carts.jumlah','carts.harga','total','produks.gambar')
-        // ->join('produks', 'carts.produk_id', '=', 'produks.id')
-        // ->orderBy('carts.created_at', 'desc')
-        // ->take(4)
-        // ->get();    
-
-        // $count = DB::table('carts')->count();
-
-        return(view('vendor.index'));
+        return(view('vendor.index')->with('vendors',$vendors));
 
         // return(view('invoice')->with('produks',$produks)->with('carts',$carts)->with('count',$count));
     }
@@ -57,13 +50,32 @@ class SupplyChainController extends Controller
 
         // return(view('invoice')->with('produks',$produks)->with('carts',$carts)->with('count',$count));
     }
+
+    //
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function rfq()
+    {
+        //
+        $rfq = Rfq::all();      
+        
+        return(view('rfq.index')->with('rfq',$rfq));
+
+        // return(view('invoice')->with('produks',$produks)->with('carts',$carts)->with('count',$count));
+    }
+
+
+
      //
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function vendorpost()
+    public function purchase()
     {
         //
 
@@ -78,8 +90,9 @@ class SupplyChainController extends Controller
 
         // $count = DB::table('carts')->count();
 
-        return(view('vendor.index'));
+        return(view('purchase.index'));
 
         // return(view('invoice')->with('produks',$produks)->with('carts',$carts)->with('count',$count));
     }
+     
 }

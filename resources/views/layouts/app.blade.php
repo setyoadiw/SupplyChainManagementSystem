@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="author" content="Setyo Adi Wibowo">
     <meta name="generator" content="Jekyll v3.8.5">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,700&subset=latin,latin-ext">
     <title>Supply Chain</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/offcanvas/">
@@ -43,7 +44,9 @@
 <main role="main" class="container">
   @yield('content')
 </main>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-      <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
-        <script src="{{asset('js/offcanvas.js')}}"></script></body>
+<script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('js/offcanvas.js')}}"></script></body>
+@yield('js')
 </html>
